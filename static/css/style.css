@@ -1,0 +1,89 @@
+
+.empty {
+    color: #666;
+    font-style: italic;
+}
+
+.rooms button {
+    cursor: pointer;
+}
+    .rooms li.joined {
+       color: rgb(47,93,217);
+
+    }
+
+#chats {
+}
+    #chats .room {
+        border: 0px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+
+    }
+    #chats h2 {
+        color: rgb(47,93,217);
+        font-weight: bold;
+        font-size: 2.5em;
+    }
+    #chats .messages {
+        min-height: 50px;
+        overflow: auto;
+        margin: 2px 0 5px 0;
+        font-size: 16px;
+    }
+    #chats .username {
+        display: inline-block;
+        color: #616161;
+        font-size: 16px;
+        width: 100px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+    #chats input{
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.12);
+        font-size: 16px;
+        margin: 0;
+        padding: 4px 0;
+        width: 90%;
+        background: 0 0;
+        text-align: left;
+        color: inherit;
+        outline: none;     margin: 24px 0;
+    }
+    #chats button{
+        float: right;
+        border: none;
+        height: 30px;
+        margin: 0;
+        min-width: 64px;
+        display: block;
+        padding: 0 16px;
+        color: #3f51b5;
+        font-size: 14px;     margin: 24px 0;
+    font-weight: 500;
+    }
+    #chats .contextual-message{
+        text-align: center;
+        margin: 5px 5px 5px 5px;
+    }
+    #chats .text-muted {
+        opacity: .6;
+        font-style: italic;
+    }
+    #chats .text-danger {
+        color: #a94442;
+        font-weight: bold;
+    }
+    #chats .text-warning {
+        color: #DCAD5C;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+
+.quiz-list{
+    margin: 3%;
+    font-size: 13px;
+}
+

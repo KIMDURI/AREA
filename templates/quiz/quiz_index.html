@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}AREA - Quiz{% endblock %}
+{% block header_text %}AREA - Quiz{% endblock %}
+{% block content %}
+  {% load staticfiles %}
+    <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+             <div class="mdl-card mdl-cell mdl-cell--12-col ">
+              <div class="mdl-card__supporting-text">
+                <h4>Select Quiz option</h4>
+
+			<div style="margin-left: 40px">
+			<form  action="/quiz/test" method="get">
+				{% csrf_token %}
+
+				<h5> Language </h5>
+				<fieldset id="1">
+					<span class="mdl-list__item-primary-content">Korean</span>
+					    <span class="mdl-list__item-secondary-action">
+						  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="l1">
+							<input name="lang" type="radio" id="l1" class="mdl-radio__button" value="Korean" checked />
+						  </label>
+					</span>
+
+					<span class="mdl-list__item-primary-content">Persian</span>
+					    <span class="mdl-list__item-secondary-action">
+						  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="l2">
+							<input name="lang"  type="radio" id="l2" class="mdl-radio__button" value="Persian"  />
+						  </label>
+					</span>
+
+				 </fieldset>
+
+				<h5> Level </h5>
+				<fieldset id="2">
+					<span class="mdl-list__item-primary-content">Level 1</span>
+					    <span class="mdl-list__item-secondary-action">
+						  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="a1">
+							<input name="level" type="radio" id="a1" class="mdl-radio__button" value="1" checked />
+						  </label>
+					</span>
+
+					<span class="mdl-list__item-primary-content">Level 2</span>
+					    <span class="mdl-list__item-secondary-action">
+						  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="a2">
+							<input name="level"  type="radio" id="a2" class="mdl-radio__button" value="2"  />
+						  </label>
+					</span>
+
+				 </fieldset>
+
+			   <p>
+				    <button href="{%url 'test'%}" class="mdl-button mdl-js-button mdl-button--primary" type="submit" >Submit</button>
+                    <button onclick="window.history.back();" class="mdl-button mdl-js-button mdl-button--primary" type="button">Cancel</button>
+	  			</p>
+
+	</form>
+	</div>
+
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}AREA - Quiz{% endblock %}
+
+{% block header_text %}AREA - Quiz{% endblock %}
+{% block content %}
+  {% load staticfiles %}
+
+	<main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+             <div class="mdl-card mdl-cell mdl-cell--12-col ">
+              <div class="mdl-card__supporting-text">
+                <h3 style="margin-bottom: 50px;">Quiz</h3>
+
+		<form class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" action="/quiz/result" method="get">
+		  {% csrf_token %}
+
+		  {% for question in questions %}
+			<div class="quiz-list">
+			<h4> {{forloop.counter}} - {{question.question}}</h4>
+			<fieldset style="margin-left: 50px;" id="{{forloop.counter}}">
+
+				<span class="quiz-list mdl-list__item-primary-content">{{question.answer_1}}</span>
+					    <span class="mdl-list__item-secondary-action">
+						  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="a1_{{forloop.counter}}">
+							<input name="question{{forloop.counter}}" value="{{question.id_1}}" type="radio" id="a1_{{forloop.counter}}" class="mdl-radio__button" checked />
+						  </label>
+				</span>
+
+				<span class="quiz-list mdl-list__item-primary-content">{{question.answer_2}}</span>
+					    <span class="mdl-list__item-secondary-action">
+						  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="b2_{{forloop.counter}}">
+							<input name="question{{forloop.counter}}" value="{{question.id_2}}" type="radio" id="b2_{{forloop.counter}}" class="mdl-radio__button" />
+						  </label>
+				</span>
+
+				<span class="quiz-list mdl-list__item-primary-content">{{question.answer_3}}</span>
+					    <span class="mdl-list__item-secondary-action">
+						  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="c3_{{forloop.counter}}">
+							<input name="question{{forloop.counter}}" value="{{question.id_3}}" type="radio" id="c3_{{forloop.counter}}" class="mdl-radio__button"/>
+						  </label>
+				</span>
+
+				<span class="quiz-list mdl-list__item-primary-content">{{question.answer_4}}</span>
+					    <span class="mdl-list__item-secondary-action">
+						  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="d4_{{forloop.counter}}">
+							<input name="question{{forloop.counter}}" value="{{question.id_4}}" type="radio" id="d4_{{forloop.counter}}" class="mdl-radio__button"/>
+						  </label>
+				</span>
+
+			</fieldset>
+			</div>
+		  {% endfor %}
+
+			 <p>
+				 <button class="mdl-button mdl-js-button mdl-button--primary" type="submit" >Submit</button>
+                 <button onclick="window.history.back();" class="mdl-button mdl-js-button mdl-button--primary" type="button">Cancel</button>
+			 </p>
+
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	</form>
+
+
+{% endblock content %}

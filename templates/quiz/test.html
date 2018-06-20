@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}AREA - Quiz{% endblock %}
+
+{% block header_text %}AREA - Quiz{% endblock %}
+{% block content %}
+  {% load staticfiles %}
+
+   <main class="mdl-layout__content">
+      <div class="mdl-grid portfolio-max-width">
+         <div class="mdl-card mdl-cell mdl-cell--12-col ">
+            <div class="mdl-card__supporting-text">
+
+               <h3>Result</h3> <h5>YOUR SCORE IS  {{result}}</h5>
+
+         </div>
+         </div></div></main>
+
+
+{% endblock content %}

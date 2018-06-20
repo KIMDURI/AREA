@@ -1,0 +1,34 @@
+{% extends "sign_index.html" %}
+{% block title %}AREA - Sign up{% endblock %}
+{% block header_text %}AREA - Sign up{% endblock %}
+
+{% block content %}
+  {% load staticfiles %}
+
+          <h4>Sign up</h4>
+        </div>
+
+       </header>
+
+    <div class="demo-container mdl-layout">
+
+      <main class="demo-main mdl-layout__content">
+        <div class=" mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div style="padding: 80px 56px;"class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+
+
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4> ID</h4>
+
+                    <input style="outline: none;" class="mdl-textfield__input"  type="text" name="username" maxlength="150" required="" id="id_username">
+                    <p class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+
+
+                    <h4 style="margin-top: 50px;">  Password</h4>
+                    <input style="outline: none;" class="mdl-textfield__input"  type="password" name="password" maxlength="128" required="" id="id_password">
+
+                    <input input style=" margin-top: 10%; margin-bottom: 10px; " class="mdl-cell--12-col mdl-button mdl-js-button  mdl-button--accent" type="submit" value="Sign up" />
+                </form>
+{% endblock content %}

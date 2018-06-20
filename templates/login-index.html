@@ -1,0 +1,105 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+
+<head>
+    <title>AREA</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="{% static "css/mdl.css" %}" type="text/css" media="screen" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+        .portfolio-navigation-row .is-active:after {
+  content: "";
+  width: 70%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(47,93,217);
+  left: 15%;
+
+    </style>
+</head>
+<body>
+<div class="mdl-layout__container has-scrolling-header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-tabs is-upgraded" data-upgraded=",MaterialLayout">
+      <header style=" background-image: url({% static "img/main-1.png" %})" class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row" style=" justify-content:  center;">
+          <h4>AREA.</h4>
+        </div>
+
+           <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only" style=" justify-content:  center;">
+                  <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                    <a class="mdl-navigation__link is-active" href="/">My page</a>
+                    <a class="mdl-navigation__link" href="{%url 'language' %}">Learn</a>
+                    <a class="mdl-navigation__link" href="{%url 'chat' %}">Chatting</a>
+                    <a class="mdl-navigation__link" href="{%url 'list_board' %}">Board</a>
+                    <a class="mdl-navigation__link" href="{%url 'logout' %}"><i class="material-icons" >exit_to_app</i></a>
+                </nav>
+            </div>
+       </header>
+
+        <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+
+                <h3 sylte="color: rgb(47,93,217)" style="color:  rgb(255,64,129);"> Hello, {{  request.user}}</h3>
+
+             <div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--4dp">
+              <div class="mdl-card__supporting-text">
+                <h4>Quiz Prograss</h4>
+
+               <button style="margin-bottom: 20px;"  class="mdl-button mdl-js-button " >
+                 Today Quiz Ranker<strong> {{ranker.user_id}}</strong> {{ranker.result}}
+                </button>
+                  {% if result %}
+                      <table class="mdl-data-table mdl-js-data-table mdl-cell--8-col">
+                      <thead>
+                        <th style=" text-align: center; " class="mdl-data-table__cell--non-numeric">Result</th>
+                        <th style=" text-align: center; " >Date</th>
+                      </thead>
+                      <tbody>
+                          {% for rs in result %}
+                          <tr>
+                            <td style=" text-align: center; "class="mdl-data-table__cell--non-numeric"> {{rs.result}} </td>
+                            <td style=" text-align: center; ">  {{rs.date}} </td>
+                          </tr>
+                      {% endfor%}
+                         </tbody>
+                      </table>
+                  {% else %}
+                    <p> No Quiz data</p>
+                  {% endif %}
+              </div>
+              <div class="mdl-card__actions">
+                <a href=" {%url 'language'%}" class="mdl-button">Go to solve quiz</a>
+              </div>
+            </div>
+                <div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--4dp">
+              <div class="mdl-card__supporting-text">
+                <h4>Chatting Room List</h4>
+                   <ul style="margin-top: 50px;" class="rooms">
+                  {% for room in rooms %}
+                       <li class="mdl-button room-link">{{room}}</li>
+                  {% endfor %}
+                   </ul>
+              </div>
+
+            </div>
+
+
+            </div>
+
+             </main>
+
+    <div class="mdl-layout__obfuscator"></div></div></div>
+
+
+
+</body>
+</html>
